@@ -7,6 +7,7 @@ const Card = ({ imagePath, title, releaseDate, rating, genre }) => {
   const genreNames = useGenreNames(genre);
 
   return (
+    
     <div className="flex flex-col" data-testid="movie-card">
       {/* Poster */}
       <div>
