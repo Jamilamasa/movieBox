@@ -1,5 +1,4 @@
 import React from "react";
-import imgabout from "../../../assets/imgabout.png";
 import { getMovieUrl } from "../../../Utility/Utility";
 import MovieDescription from "./MovieDescription";
 import MovieSerenre from "./MovieSerenre";

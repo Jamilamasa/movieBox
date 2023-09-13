@@ -1,4 +1,5 @@
 import React from "react";
+import { getUTCDate } from "../../../Utility/Utility";
 
 const MovieDescription = ({ description }) => {
   return (
@@ -6,8 +7,8 @@ const MovieDescription = ({ description }) => {
       {/* Name/release date/rating/etc */}
 
       <h1 className="mt-4 mx-4 text-xl font-bold">
-        {description.title} • <span>{description.date}</span> •{" "}
-        {description.rating} • <span>{description.runtime}</span>
+        <span data-testid="movie-title">{description.title}</span> • <span data-testid="movie-release-date">{getUTCDate(description.date)}</span> •{" "}
+        {description.rating} • <span data-testid="movie-runtime">{description.runtime}</span>
         {description?.genres?.map((des) => {
           return (
             <span
@@ -22,15 +23,17 @@ const MovieDescription = ({ description }) => {
 
       {/* description*/}
 
-      <p className="mx-4 mt-4">{description.overView}</p>
+      <p className="mx-4 mt-4" data-testid="movie-overview">{description.overView}</p>
 
       {/* cast*/}
       <h1 className="mx-4 mt-4 font-bold text-lg">Production Companies:</h1>
       <ul className=" px-3 mx-4 mt-4">
-        {description?.productionCompanies?.map((des)=>{
-          return <li className="mb-5">
-          <span className="text-[#BE123C]">{des.name}</span>
-        </li>
+        {description?.productionCompanies?.map((des) => {
+          return (
+            <li className="mb-5">
+              <span className="text-[#BE123C]">{des.name}</span>
+            </li>
+          );
         })}
       </ul>
 
