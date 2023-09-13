@@ -37,7 +37,6 @@ export const useTopRatedMovies = () => {
 };
 
 // Get Genre
-
 export const useGenreNames = (idArray) => {
   const [genreNames, setGenreNames] = useState([]);
   const [idToNameMap, setidToNameMap] = useState([]);
@@ -72,4 +71,37 @@ export const useGenreNames = (idArray) => {
   }, [idArray, idToNameMap]);
 
   return genreNames;
+};
+
+export const useSearchMovies = (movie) => {
+  const [loading, setLoading] = useState(false);
+  const [results, setResults] = useState([]);
+
+  const searchMovies = async (movie) => {
+    setLoading(true);
+    try {
+      const response = await axios.get(`${baseUrl}/3/search/movie`, {
+        params: {
+          api_key: apiKey,
+          query: movie,
+        },
+      });
+      if (response) {
+        setLoading(false);
+        setResults(response.data.results);
+        if (response.data.total_results === 0) {
+          toast.error(`Couldn't Find ${movie}`);
+        }
+      }
+    } catch (error) {
+      if (error) {
+        setLoading(false);
+        toast.error("An Error Occured");
+      }
+    }
+  };
+  useEffect(() => {
+    searchMovies(movie);
+  }, []);
+  return [results, loading];
 };

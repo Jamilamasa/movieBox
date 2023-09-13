@@ -2,11 +2,11 @@ import React from "react";
 import Card from "./Card";
 import Header from "./Header";
 
-const FeaturedMovies = ({ topMovies }) => {
+const FeaturedMovies = ({ topMovies, header }) => {
   return (
     <div className="px-40 py-16">
       {/* Header */}
-      <Header />
+      <Header header={header} listLength={topMovies.length}/>
       {/* Grid */}
       <div className="grid gap-4 grid-cols-4">
         {topMovies.map((movie) => {

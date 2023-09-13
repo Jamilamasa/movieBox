@@ -15,7 +15,7 @@ const HomePage = () => {
       {/* Hero Section */}
       <Hero />
       {/* Featured Movies */}
-      <FeaturedMovies topMovies={topMovies.slice(0,10)}/>
+      <FeaturedMovies header='Featured Movies' topMovies={topMovies.slice(0,10)}/>
       {/* Footer */}
       <Footer/>
     </>
