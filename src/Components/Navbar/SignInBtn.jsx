@@ -5,7 +5,7 @@ const SignInBtn = () => {
   return (
     <div className="flex">
       <div>
-        <h1 className="text-black font-bold text-base my-1 mx-4">Sign In</h1>
+        <h1 className="text-white font-bold text-base my-1 mx-4">Sign In</h1>
       </div>
       <div>
         <img className="w-9" src={menuIcon} alt="Menu Icon" />
