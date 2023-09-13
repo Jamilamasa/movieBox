@@ -105,3 +105,33 @@ export const useSearchMovies = (movie) => {
   }, []);
   return [results, loading];
 };
+
+export const useMovieDetails = (id) => {
+  const [loading, setLoading] = useState(false);
+  const [results, setResults] = useState({});
+
+  const getMovieDetails = async (id) => {
+    setLoading(true);
+    try {
+      const response = await axios.get(`${baseUrl}/3/movie/${id}`, {
+        params: {
+          api_key: apiKey,
+        },
+      });
+
+      if (response) {
+        // console.log(response.data);
+        setResults(response.data);
+      }
+    } catch (error) {
+      if (error) {
+        toast.error("An Error Occured");
+        console.log(error)
+      }
+    }
+  };
+  useEffect(() => {
+    getMovieDetails(id);
+  }, []);
+  return [results, loading];
+};
