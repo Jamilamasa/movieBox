@@ -6,10 +6,11 @@ import SignInBtn from './SignInBtn'
 
 
 const Navbar = () => {
+
   return (
     <div className='flex sticky justify-between px-40 py-3'>
         {/* Icon */}
-        <Logo/>
+        <Logo color='white' margin={null}/>
         {/* Search Bar */}
         <SearchBar/>
         {/* Signin and option */}

@@ -4,7 +4,7 @@ import Sidebar from "./Sidebar";
 
 const MovieDetailsPage = () => {
   return (
-    <div >
+    <div className="flex">
       {/* Sidebar */}
       <Sidebar />
       {/* Showcase Area */}
